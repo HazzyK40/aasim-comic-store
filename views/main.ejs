@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<link rel="icon" href="data:,">
+<html>
+    <body>
+        <div style="width: 100%;text-align: center;background: rgb(98, 145, 192);">
+            <h2>Comic Store</h2>
+        </div>
+        <div class="main">
+            <div class="strip row">
+                <div class="col-2 title">
+                    <h7>Date Added: <%=data.day%>-<%=data.month%>-<%=data.year%> </h7>
+                </div>
+                <div class="col-8 title">
+                    <h3><%=data.title%></h3>
+                </div>
+                <div class="col-2">
+                    <h7>Visits count:  <%=data.count%></h7>
+                </div>
+                <div class="col-2 left-button">
+                    <% if(data.num>1){ %>
+                        <a href="/<%=(data.num)-1%>" class="nav">Prev</a>
+                    <% } %>  
+                </div>
+                <div class="col-8">
+                    <div class="row" style="width: 100%;">
+                        <div class="col-12" style="width: 100%;display:table-cell; vertical-align:middle; text-align:center"><a style="width: 20%;margin-left: 40%;" href="/<%=(data.random)%>" class="nav">Random</a></div>
+                        <div class="col-12" style="width: 100%;text-align: center;"><img style="margin-top: 30px;" src="<%=data.img%>" alt="<%=data.alt%>"/></div>
+                        <div class="col-12" style="width: 100%;font-family: cursive;">
+                            <br/>
+                            <% if(data.transcript.length>0){ %>
+                            <h3 style="text-align: center;">Transcript</h3>
+                            <% } %>  
+                            <div style="text-align: left;">
+                                <%-data.transcript%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 right-button">
+                    <% if(data.max>data.num){ %>
+                        <a href="/<%=(data.num)+1%>" class="nav">Next</a>
+                    <% } %>  
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
+
+<style>
+    .main{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .strip{
+        width: 100%;
+    }
+
+    .nav{
+        
+        text-decoration: none;
+    }
+
+    .title{
+        text-align: center;
+    }
+</style>
